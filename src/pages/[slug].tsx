@@ -21,10 +21,10 @@ const ProfilePage: NextPage<{ userId: string }> = ({ userId }) => {
       <Head>
         <title>Profile</title>
       </Head>
-      <main className="flex h-screen justify-center">
+      <PageLayout>
         <div>Profile View</div>
         <div>{data.name}</div>
-      </main>
+      </PageLayout>
     </>
   );
 };
@@ -34,6 +34,7 @@ import { createProxySSGHelpers } from "@trpc/react-query/ssg";
 import { appRouter } from "~/server/api/root";
 import SuperJSON from "superjson";
 import { prisma } from "~/server/db";
+import { PageLayout } from "~/components/layout";
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const ssg = generateSSHelper();
